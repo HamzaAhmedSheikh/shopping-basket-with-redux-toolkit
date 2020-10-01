@@ -6,10 +6,10 @@ export interface ProductItem {
 }
 
 export interface CartItem {
-    id: string,
-    name: string,
-    price: number,
-    cartId: string,    
+    id: string
+    name: string
+    price: number
+    cartId: string
 }
 
 export interface ItemProps {
