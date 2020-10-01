@@ -1,11 +1,11 @@
 export interface ProductItem {
     id: string
-    name: string
+    title: string
     price: number
     pic: string
 }
 
-export interface CartITem {
+export interface CartItem {
     id: string,
     name: string,
     price: number,
