@@ -1,16 +1,16 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { CartItem, ItemProps } from '../../global';
 import { addItem } from "../cart/cartSlice";
 import './Product.css';
 let uniqid = require('uniqid');
 
  
-
+ 
  export const Item = ({name, price, pic, id}:ItemProps) => {
-    let cart;
+    
     const dispatch = useDispatch();
-     cart = useSelector(state => state);
+    //  let cart = useSelector(state => state);
     const cartItemSubmitEventHandler = (e:any, cartItem:CartItem) => {
         e.preventDefault();
 
