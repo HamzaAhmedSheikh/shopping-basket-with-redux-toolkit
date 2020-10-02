@@ -9,8 +9,8 @@ import CartItems from "../components/cart/CartItem";
 import { ProductList } from "../components/product/ProductList";
 
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, Typography, Button, IconButton } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
+
 import './Navbar.css';
 
 const useStyles = makeStyles((theme) => ({
@@ -30,40 +30,26 @@ const useStyles = makeStyles((theme) => ({
  export default function Navbar() {
   const classes = useStyles();
     return (
-        <Router>           
+        <Router>
           <div className={classes.root}>
-      <AppBar position="static" className="Appbar">
-        <Toolbar>          
-          <Typography variant="h4" className={classes.title}>
-            <strong className="logo"> NIKE </strong> 
-          </Typography>
-          <ul>
-            <li> <Link to="/"> Home </Link>  </li>
-            <li> <Link to="/cart"> Cart </Link> </li>
-          </ul>
-        </Toolbar>
-      </AppBar>
-    </div> 
-          {/* <div>
             <AppBar position="static" className="Appbar">
-              <Toolbar>                
-                <h1>
-                  <Link to="/" className="logo">Nike</Link>
-                </h1>              
-                  
-                  <ul>
-                   <li> <Link to="/"> Home </Link>  </li>  
-                   <li> <Link to="/cart"> Cart </Link> </li>
-                   </ul>                            
-                        
-             </Toolbar>
-          </AppBar> */ }
+              <Toolbar>          
+                <Typography variant="h4" className={classes.title}>
+                  <strong className="logo"> NIKE </strong> 
+                </Typography>
 
-            <h2> Ecommerce App with ReduxToolkit.</h2>
-            <Switch>
-             <Route exact path="/"> <ProductList /> </Route>  
-             <Route exact path="/cart">  <CartItems /> </Route>
-            </Switch>        
+                <ul>
+                  <li> <Link to="/"> Home </Link>  </li>
+                  <li> <Link to="/cart"> Cart </Link> </li>
+                </ul>
+              </Toolbar>
+            </AppBar>
+          </div>  
+         
+          <Switch>
+            <Route exact path="/"> <ProductList /> </Route>  
+            <Route exact path="/cart">  <CartItems /> </Route>
+          </Switch>        
         </Router>        
     )
  }
