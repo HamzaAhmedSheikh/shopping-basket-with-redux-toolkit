@@ -7,11 +7,13 @@ import {
 } from "react-router-dom";
 import CartItems from "../components/cart/CartItem";
 import { ProductList } from "../components/product/ProductList";
-
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
-
 import './Navbar.css';
+
+
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,7 +29,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
- export default function Navbar() {
+ export default function Navbar() { 
+      
   const classes = useStyles();
     return (
         <Router>
@@ -40,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 
                 <ul>
                   <li> <Link to="/"> Home </Link>  </li>
-                  <li> <Link to="/cart"> Cart </Link> </li>
+                  <li> <Link to="/cart"> Cart  </Link> </li>
                 </ul>
               </Toolbar>
             </AppBar>

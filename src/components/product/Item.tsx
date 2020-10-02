@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { CartItem, ItemProps } from '../../global';
 import { addItem } from "../cart/cartSlice";
 import './Product.css';
@@ -10,7 +10,7 @@ let uniqid = require('uniqid');
  export const Item = ({name, price, pic, id}:ItemProps) => {
     
     const dispatch = useDispatch();
-    //  let cart = useSelector(state => state);
+    let cart = useSelector(state => state);
     const cartItemSubmitEventHandler = (e:any, cartItem:CartItem) => {
         e.preventDefault();
 
@@ -25,7 +25,7 @@ let uniqid = require('uniqid');
             <h2 className="h2">{name}</h2>
             <h4 className="h4"> ${price}</h4>
 
-            <button onClick={(event => cartItemSubmitEventHandler(event, {id, name, price, cartId:uniqid() }))}
+            <button onClick={(event => cartItemSubmitEventHandler(event, {id, name, price, pic, cartId:uniqid() }))}
                     className='btn'>
                Add to cart
             </button>

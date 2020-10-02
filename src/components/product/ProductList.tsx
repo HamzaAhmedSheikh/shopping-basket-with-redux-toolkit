@@ -11,7 +11,7 @@ import './Product.css';
     return (
         <>
          <div className='row-left'>
-            <Cart />
+            <Cart />            
          </div>
          
          <div className="product-list">

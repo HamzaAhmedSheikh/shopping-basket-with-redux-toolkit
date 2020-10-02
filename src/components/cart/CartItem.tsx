@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeItem } from "./cartSlice";
 import { CartItem } from "../../global";
+import './CartItem.css'
 
 
  const CartItems = () => {
@@ -18,30 +19,38 @@ import { CartItem } from "../../global";
           <table>
             <thead>
               <tr>
-                <th> Products </th>
-                <th> price </th>
-                <th> remove </th>                     
+              <th>Image</th>
+              <th>Name</th>
+              <th>Quantity</th>
+              <th>Price</th>              
+              <th> T.Price</th>   
+              <th />                         
               </tr> 
             </thead>  
 
             <tbody>              
-              {myCartItem.map((item,index) => {
-                  return (
-                    <tr key={item.cartId} className='item-row'>
-                      <td className='product'> {item.name} </td>   
-                      <td>{item.price}</td>
-                      <td>
-                        <button onClick={() => dispatch(removeItem({ cartId: item.cartId }))}>
-                           X 
-                        </button>   
-                      </td>                   
-                    </tr> 
+              {myCartItem.map((product,index) => {
+                  return (                     
+                      <tr key={product.cartId} >
+                        <td>
+                          <img className='img-table' src={product.pic} alt={product.name} height='100px' width='100px' />
+                        </td>
+                        <td className='product'> {product.name} </td>   
+                        <td>{product.price}</td>
+                        <td>
+                          <button className='cart-button' onClick={() => dispatch(removeItem({ cartId: product.cartId }))}>
+                              X 
+                          </button>   
+                          <button className='cart-button'>+</button>
+                          <button className='cart-button'>-</button>
+                        </td>                   
+                      </tr>                     
                   )
               })}                
             </tbody>            
           </table>
 
-          <h4> Total: ${totalPrice} </h4>
+          <h4 className='total-align'> Total: ${totalPrice} </h4>
         </div>
     )
  }
