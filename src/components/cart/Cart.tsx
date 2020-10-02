@@ -19,7 +19,7 @@ import { CartItem } from "../../global";
                 return <div key={`${cartItem.cartId}`}>{cartItem.id}: {cartItem.name}</div>
             })  
           }
-            <h4> Total: {totalPrice} </h4>
+            <h4> Total: ${totalPrice} </h4>
         </div>
     )
  }

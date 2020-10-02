@@ -3,11 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { removeItem } from "./cartSlice";
 import { CartItem } from "../../global";
 
+
  const CartItems = () => {
     // @ts-ignore     
 
-   const myCartItem: CartItem[] = useSelector((state:CartItem[]) => state.cart);
-   console.log(myCartItem)
+   const myCartItem: CartItem[] = useSelector((state:CartItem[]) => state.cart);   
+   const totalPrice =  myCartItem.reduce((prev, next) => prev + next.price,0);
    const dispatch = useDispatch();
 
     return (
@@ -23,7 +24,7 @@ import { CartItem } from "../../global";
               </tr> 
             </thead>  
 
-            <tbody>
+            <tbody>              
               {myCartItem.map((item,index) => {
                   return (
                     <tr key={item.cartId} className='item-row'>
@@ -36,9 +37,11 @@ import { CartItem } from "../../global";
                       </td>                   
                     </tr> 
                   )
-              })}  
-            </tbody>
+              })}                
+            </tbody>            
           </table>
+
+          <h4> Total: ${totalPrice} </h4>
         </div>
     )
  }

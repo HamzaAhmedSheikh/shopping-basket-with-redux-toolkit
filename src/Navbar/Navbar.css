@@ -1,0 +1,25 @@
+.logo {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+}
+
+.Appbar {
+    background-color: whitesmoke !important;
+}
+
+ul li {
+    list-style: none;
+    display: inline-block;    
+}
+
+ul li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #555;
+    padding: 0 15px;
+}
+
+ul li a:hover {
+    color: lightseagreen;
+}

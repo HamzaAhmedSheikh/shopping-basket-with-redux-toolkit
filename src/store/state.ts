@@ -6,37 +6,37 @@ import { ProductItem } from '../global';
 export const data:ProductItem[] = [
     {
         id: "1",
-        title: "Nike Shoes 01",
+        title: "Nike Shoe 01",
         pic: "https://www.upsieutoc.com/images/2020/06/27/img1.jpg",       
         price: 115,        
     },
     {
         id: "2",
-        title: "Nike Shoes 02",
+        title: "Nike Shoe 02",
         pic: "https://www.upsieutoc.com/images/2020/06/27/img2.jpg",       
         price: 65,
     },
     {
         id: "3",
-        title: "Nike Shoes 03",
+        title: "Nike Shoe 03",
         pic: "https://www.upsieutoc.com/images/2020/06/27/img3.jpg",       
         price: 55,
     },
     {
         id: "4",
-        title: "Nike Shoes 04",
+        title: "Nike Shoe 04",
         pic: "https://www.upsieutoc.com/images/2020/06/27/img4.jpg",       
         price: 80, 
     },
     {
         id: "5",
-        title: "Nike Shoes 05",
+        title: "Nike Shoe 05",
         pic: "https://www.upsieutoc.com/images/2020/06/27/img5.jpg",       
         price: 100,
     },
     {
         id: "6",
-        title: "Nike Shoes 06",
+        title: "Nike Shoe 06",
         pic: "https://www.upsieutoc.com/images/2020/06/27/img6.jpg",       
         price: 58,
     },
