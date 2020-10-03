@@ -1,12 +1,14 @@
 import React from "react";
+import { useSelector } from 'react-redux'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-import CartItems from "../components/cart/CartItem";
-import { ProductList } from "../components/product/ProductList";
+import { Cart } from "../components/cart/CartItem";
+import  ProductList  from "../components/product/ProductList";
+import { ProductItem } from '../global'
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import './Navbar.css';
@@ -29,8 +31,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
- export default function Navbar() { 
-      
+ export default function Navbar() {
+   
+  const products = useSelector((state: ProductItem[]) => state)
+  let totalQ = products.filter(product => product.added).length;
+
   const classes = useStyles();
     return (
         <Router>
@@ -43,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
 
                 <ul>
                   <li> <Link to="/"> Home </Link>  </li>
-                  <li> <Link to="/cart"> Cart  </Link> </li>
+                  <li> <Link to="/cart"> Cart ({totalQ}) </Link> </li>
                 </ul>
               </Toolbar>
             </AppBar>
@@ -51,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
          
           <Switch>
             <Route exact path="/"> <ProductList /> </Route>  
-            <Route exact path="/cart">  <CartItems /> </Route>
+            <Route exact path="/cart">  <Cart /> </Route>
           </Switch>        
         </Router>        
     )

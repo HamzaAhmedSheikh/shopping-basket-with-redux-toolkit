@@ -1,56 +1,70 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { removeItem } from "./cartSlice";
-import { CartItem } from "../../global";
-import './CartItem.css'
+import { useSelector } from 'react-redux';
+import { store, removeItem, increment, decrement } from './cartSlice';
+import { ProductItem } from '../../global';
+import { Link } from 'react-router-dom';
 
+import './CartItem.css';
 
- const CartItems = () => {
-    // @ts-ignore     
+ export function Cart() {    
+  const products = useSelector((state: ProductItem[]) => state)
+   console.log('cart.tsx ===> ', products);
+   
+    return(
+        <>
+         <div className='ifempty'>
+           {products.filter(product => product.added).length === 0 ? (
+             <>
+              <h1>Your Cart is Empty</h1>
+              <Link to='/'>
+                <button className='hvr-bounce-to-left'>
+                   shop here
+                </button>
+              </Link>
+            </>) : ''}
+         </div>    
 
-   const myCartItem: CartItem[] = useSelector((state:CartItem[]) => state.cart);   
-   const totalPrice =  myCartItem.reduce((prev, next) => prev + next.price,0);
-   const dispatch = useDispatch();
+         {products.filter(product => product.added).length === 0 ? ' ' :
+            <div>
+              <table >
+                <thead >
+                  <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total Price</th>
+                    <th />
+                  </tr>
+                </thead>
+                
+                <tbody>
+                  {products.filter(product => product.added).map((product: ProductItem, i) => (
+                    <tr key={i.toString()}>
+                      <td>
+                        <img className='cart-img' src={product.pic} alt={product.title} height='100px' width='100px' />
+                      </td>
 
-    return (
-        <div>
-          <h3>Your Items</h3>   
+                      <td>  {product.title} </td>
 
-          <table>
-            <thead>
-              <tr>
-              <th>Image</th>
-              <th>Name</th>
-              <th>Quantity</th>
-              <th>Price</th>              
-              <th> T.Price</th>   
-              <th />                         
-              </tr> 
-            </thead>  
+                      <td> {product.quantity} </td>
+                
+                      <td> ${product.price} </td>
 
-            <tbody>              
-              {myCartItem.map((product,index) => {
-                  return (                     
-                      <tr key={product.cartId} >
-                        <td>
-                          <img className='img-table' src={product.pic} alt={product.name} height='100px' width='100px' />
-                        </td>
-                        <td className='product'> {product.name} </td>                          
-                        <td>{product.price}</td>
-                        <td>
-                          <button className='cart-button' onClick={() => dispatch(removeItem({ cartId: product.cartId }))}>
-                              X 
-                          </button>                       
-                        </td>                   
-                      </tr>                     
-                  )
-              })}                
-            </tbody>            
-          </table>
+                      <td> ${product.price * product.quantity} </td>
 
-          <h4 className='total-align'> Total: ${totalPrice} </h4>
-        </div>
+                      <td>
+                        <button className='cart-button' onClick={() => store.dispatch(increment(product))}>+</button>
+                        <button className='cart-button' onClick={() => store.dispatch(removeItem(product))}>-</button>
+                        <button className='cart-button' onClick={() => store.dispatch(decrement(product))}>x</button>
+                      </td>
+                    </tr>
+                 ))}
+                </tbody>                
+              </table>
+              
+                <h5 className='total-bill'>Total : ${products.reduce((total, pro) => total + (pro.price) * pro.quantity, 0)}</h5>
+            </div>}      
+        </>
     )
  }
-
- export default CartItems;

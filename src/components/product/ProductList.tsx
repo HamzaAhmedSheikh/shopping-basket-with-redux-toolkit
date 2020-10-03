@@ -1,29 +1,36 @@
 import React from 'react';
-import { Item } from './Item';
-import { data } from '../../store/state';
-import { Cart } from '../cart/Cart';
-import './Product.css';
+import { ProductItem } from '../../global';
+import { addItem, store } from '../cart/cartSlice';
+import { useSelector } from 'react-redux';
 
+import './Product.css'
 
- let uniqid = require('uniqid');
+  function ProductList() {
 
- export const ProductList = () => {
-    return (
-        <>
-         <div className='row-left'>
-            <Cart />            
-         </div>
-         
-         <div className="product-list">
-           {
-             data.map(item => (                              
-                <Item name={item.title} price={item.price} pic={item.pic} id={item.id} key={uniqid()} />
-             ))              
-           }  
-           
-         </div>
-        </>
-    )
- }
+   const products = useSelector((state: ProductItem[]) => state)
+       console.log(products);
+       
+   let product = products.map((product, i) => {
+      console.log(product);
+      
+       return (
+           <div key={i} className='product-list'>
+               <img className='product-img' src={product.pic} alt={i.toString()} />
+               <div className='product-div'>
+                   <h4>{product.title}</h4>
+                   <h5>${product.price}</h5>
+                   <button className='cart' disabled={product.added} onClick={() => store.dispatch(addItem(product))}> add to cart </button>
+               </div>
+           </div>
+       )
+   })
+
+   return (
+       <div className='product-display container'>
+          {product}
+       </div>
+   )
+}
 
  
+ export default ProductList;

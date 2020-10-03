@@ -1,28 +1,78 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { CartItem } from '../../global'
-
-
-// CartItem ===> id: string,  name: string, price: number, cartId: string,
+import { createSlice, configureStore } from "@reduxjs/toolkit";
+import { InitialState } from '../../store/state'
 
  const cartSlice = createSlice({
      name: 'cart',
-     initialState: [],
+     initialState: InitialState,
      reducers: {
         addItem: (state, action) => {
-            const cartItem: {} = action.payload;
-            const newState: any = [...state, cartItem]
+            console.log(state);            
+            return state.map(item => {
+                if (item.id !== action.payload.id) {
+                    return item
+                }
 
-            return newState
+                return {
+                    ...item,
+                    added: true,
+                    quantity: item.quantity + 1
+                }
+            })
         },
 
         removeItem: (state, action) => {
-            let idToRemove = action.payload.cartId
-            const newState = state.filter((item: CartItem) => item.cartId !== idToRemove)
+            return state.map(item => {
+                if (item.id !== action.payload.id) {
+                      return item
+                }
 
-            return newState
-        }        
-     }
- })
+                else if (item.quantity <= 1) {
+                    return {
+                        ...item,
+                        quantity: 0,
+                        added: false,
+                    }
+                }
 
- export const { addItem, removeItem } = cartSlice.actions
+                return {
+                    ...item,
+                    quantity: item.quantity - 1
+                }
+
+            })
+        },
+
+        increment: (state, action) => {
+            return state.map(item => {
+                if (item.id !== action.payload.id) {
+                      return item
+                }
+
+                return {
+                    ...item,
+                    quantity: item.quantity + 1
+                }
+            })
+        },
+
+        decrement: (state, action) => {
+            return state.map(item => {
+                if (item.id !== action.payload.id) {
+                    return item
+                }
+
+                return {
+                    ...item,
+                    quantity: 0,
+                    added: false,
+                }
+            })
+        }
+    }
+})
+  
+ const store = configureStore({ reducer: cartSlice.reducer })
+ export const { addItem, removeItem, increment, decrement } = cartSlice.actions
  export const reducer = cartSlice.reducer
+
+ export { cartSlice, store }

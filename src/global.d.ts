@@ -1,22 +1,9 @@
 export interface ProductItem {
-    id: string
-    title: string
-    price: number
-    pic: string    
-      
+    id: string,
+    title: string,
+    price: number,
+    pic: string,  
+    quantity: number,
+    added: boolean,        
 }
 
-export interface CartItem {
-    id: string
-    name: string
-    price: number
-    cartId: string
-    pic: string    
-}
-
-export interface ItemProps {
-    name: string
-    price: number
-    pic: string
-    id: string    
-}
