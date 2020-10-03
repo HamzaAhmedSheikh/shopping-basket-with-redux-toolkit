@@ -2,7 +2,7 @@ export interface ProductItem {
     id: string
     title: string
     price: number
-    pic: string
+    pic: string    
       
 }
 
@@ -11,12 +11,12 @@ export interface CartItem {
     name: string
     price: number
     cartId: string
-    pic: string
+    pic: string    
 }
 
 export interface ItemProps {
     name: string
     price: number
     pic: string
-    id: string
+    id: string    
 }

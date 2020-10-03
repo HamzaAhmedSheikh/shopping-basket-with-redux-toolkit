@@ -35,14 +35,12 @@ import './CartItem.css'
                         <td>
                           <img className='img-table' src={product.pic} alt={product.name} height='100px' width='100px' />
                         </td>
-                        <td className='product'> {product.name} </td>   
+                        <td className='product'> {product.name} </td>                          
                         <td>{product.price}</td>
                         <td>
                           <button className='cart-button' onClick={() => dispatch(removeItem({ cartId: product.cartId }))}>
                               X 
-                          </button>   
-                          <button className='cart-button'>+</button>
-                          <button className='cart-button'>-</button>
+                          </button>                       
                         </td>                   
                       </tr>                     
                   )

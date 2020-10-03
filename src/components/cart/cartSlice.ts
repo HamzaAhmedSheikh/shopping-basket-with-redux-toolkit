@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { CartItem } from '../../global'
 
+
 // CartItem ===> id: string,  name: string, price: number, cartId: string,
 
  const cartSlice = createSlice({
@@ -19,7 +20,7 @@ import { CartItem } from '../../global'
             const newState = state.filter((item: CartItem) => item.cartId !== idToRemove)
 
             return newState
-        }
+        }        
      }
  })
 
