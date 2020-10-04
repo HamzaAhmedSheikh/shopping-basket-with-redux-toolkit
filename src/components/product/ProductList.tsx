@@ -2,7 +2,6 @@ import React from 'react';
 import { ProductItem } from '../../global';
 import { addItem, store } from '../cart/cartSlice';
 import { useSelector } from 'react-redux';
-
 import './Product.css'
 
   function ProductList() {

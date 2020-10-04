@@ -47,8 +47,17 @@ const useStyles = makeStyles((theme) => ({
                 </Typography>
 
                 <ul>
-                  <li> <Link to="/"> Home </Link>  </li>
-                  <li> <Link to="/cart"> Cart ({totalQ}) </Link> </li>
+                  <li>
+                    <Link to="/">
+                      Home 
+                    </Link> 
+                  </li>
+                  <li>
+                    <Link to="/cart">
+                      Cart
+                     <b> ({totalQ}) </b>
+                    </Link>
+                  </li>
                 </ul>
               </Toolbar>
             </AppBar>
