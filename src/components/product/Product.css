@@ -17,16 +17,17 @@
 }
 
 .product-list h4 {
-    font-size: 18px;
+    font-size: 24px;
     letter-spacing: 2px;
-    font-weight: 700;
+    font-weight: 700 !important;
     margin-bottom: 5px;
     margin-top: 5px;
+    font-family: 'Noto Serif JP', serif;
 }
 
 .product-list h5 {
-    color: #BDBDBD;
-    font-size: 16px;
+    color: gray;
+    font-size: 18px;
     letter-spacing: 1px;
     font-weight: 600;
     margin-bottom: 5px;
@@ -58,6 +59,16 @@
     max-width: 300px;
     max-height: 300px;
     border-bottom: 7px solid #9E9E9E;
+}
+
+.price {
+    color: black;
+}
+
+.cart:disabled {
+    background-color: whitesmoke !important;
+    color: black !important;
+    font-weight: 800 !important;    
 }
 
 @media(max-width:700px) {

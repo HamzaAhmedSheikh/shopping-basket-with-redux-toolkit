@@ -63,7 +63,7 @@ export const InitialState: ProductItem[] = [
     },
     {
         id: "8",
-        title: "JORDAN MARS 270 LONDON",
+        title: "JORDAN MARS 270",
         pic: "https://secure-images.nike.com/is/image/DotCom/CV3042_001_A_PREM?$SNKRS_COVER_WD$&align=0,1",       
         price: 110,         
         quantity: 0,

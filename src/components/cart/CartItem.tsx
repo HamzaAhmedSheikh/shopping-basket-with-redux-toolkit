@@ -7,8 +7,7 @@ import { Link } from 'react-router-dom';
 import './CartItem.css';
 
  export function Cart() {    
-  const products = useSelector((state: ProductItem[]) => state)
-   console.log('cart.tsx ===> ', products);
+  const products = useSelector((state: ProductItem[]) => state)   
    
     return(
         <>
