@@ -38,7 +38,7 @@ import './CartItem.css';
                 </thead>
                 
                 <tbody>
-                  {products.filter(product => product.added).map((product: ProductItem, i) => (
+                  {products.filter(product => product.added).map((product: ProductItem, i) => (                               
                     <tr key={i.toString()}>
                       <td>
                         <img className='cart-img' src={product.pic} alt={product.title} height='100px' width='100px' />

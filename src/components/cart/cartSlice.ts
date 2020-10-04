@@ -71,7 +71,7 @@ import { InitialState } from '../../store/state'
     }
 })
   
- const store = configureStore({ reducer: cartSlice.reducer })
+ const store = configureStore({ reducer: cartSlice.reducer })  
  export const { addItem, removeItem, increment, decrement } = cartSlice.actions
  export const reducer = cartSlice.reducer
 
