@@ -17,7 +17,7 @@ import './Product.css'
                    <h4>{product.title}</h4>
                    <h5> <b className='price'> Price: </b> ${product.price}</h5>
                    <button className='cart' disabled={product.added} onClick={() => store.dispatch(addItem(product))}> add to cart </button>
-               </div>
+               </div>               
            </div>
        )
    })
