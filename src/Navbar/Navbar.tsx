@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
             <AppBar position="static" className="Appbar">
               <Toolbar>          
                 <Typography variant="h4" className={classes.title}>
-                  <strong className="logo"> NIKE </strong> 
+                  <strong className="logo"> Shoe Store </strong> 
                 </Typography>
 
                 <ul>
